@@ -1,24 +1,10 @@
-# React Immersive Code Challenge: Bot Battlr
-
+#  Bot Battlr
+## This is a simple toy display app
+### **By Whitney Shisia**
+#### description
 Welcome to **Bot Battlr**, the one and only spot in the known universe where you
 can custom build your own Bot Army! This is our app:
 
-![checkpoint demo](https://curriculum-content.s3.amazonaws.com/phase-2/phase-2-hooks-code-challenge-bot-battlr/checkpoint_demo.gif)
-
-Here's the scenario: a galactic overlord has hired you, a galactic web
-developer, to develop a galactic web app that will allow them to browse through
-a list of robots, view a robot's details, and, enlist a bot into their army.
-
-## Instructions
-
-For this project, you’ll be building out a React application that displays a
-list of available bots, among other features. Try your best to find the right
-places to insert code into the established code base.
-
-Part of what this code challenge is testing is your ability to follow given
-instructions. While you will definitely have a significant amount of freedom in
-how you implement the features, be sure to carefully read the directions for
-setting up the application.
 
 ## Setup
 
@@ -33,24 +19,11 @@ the browser to verify that your backend is working before you proceed!
 
 The base URL for your backend is: `http://localhost:8002`
 
-## What You Already Have
+## Live link
+Deployed Frontend can be accessed here (https://whitshisia.github.io/phase-1/)
+Deployed Backend can be accessed here [APP](https://phase-1-2.onrender.com/res/)
 
-`BotPage` is the highest component below App, and serves as the main container
-for all of the pieces of the page.
 
-`BotCollection` and `YourBotArmy` are container components, which are children
-of `BotPage`. `BotCollection` is where all the bots will be displayed, while
-`YourBotArmy` (the green portion on the top of the screen) will only display the
-bots that have been selected by the user.
-
-`BotCard` and `BotSpecs` are presentational components that have been provided
-for you that will render out information about an individual bot formatted for a
-list view and for a full view, respectively. They are pre-styled, and it is your
-responsibility to get the data into them.
-
-All of the code to style the page has been written for you, meaning that you
-should be adding to the code rather than editing it; however, if your finished
-product has some styling issues, don't worry too much about it.
 
 ## Core Deliverables
 
@@ -137,3 +110,19 @@ As a user, I should be able to:
   `SortBar`.
 - Only enlist **one** bot from each `bot_class`. The classes are
   `["Support", "Medic", "Assault", "Defender", "Captain", "Witch"]`.
+
+
+## Known Bugs
+    The application works perfectly well, no bugs.
+
+## Technologies used
+    - JSX
+    - react
+
+## Support and contact details
+    - email :: shisiawhitney215@gmail.com
+    - phone :: +254705719325
+
+### License
+*Licenced under the MIT Licence
+Copyright (c) 2024 **Whitney Shisia

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const botTypeClasses = {
   Assault: "icon military",
@@ -9,20 +9,13 @@ const botTypeClasses = {
   Captain: "icon star",
 };
 
-function BotCard({ bot , onEnlist}) {
-  const [enlisted,setEnlisted] = useState(false)
-  const handleClick = () => {
-    if (!enlisted){
-      onEnlist(bot);
-      setEnlisted(true)
-    }
-  }
+function BotCard({ bot, clickEvent, deleteBot }) {
   return (
     <div className="ui column">
       <div
         className="ui card"
         key={bot.id}
-        onClick={handleClick}
+        onClick={() => clickEvent(bot)}
       >
         <div className="image">
           <img alt="oh no!" src={bot.avatar_url} />
@@ -54,8 +47,9 @@ function BotCard({ bot , onEnlist}) {
             <div className="ui center aligned segment basic">
               <button
                 className="ui mini red button"
-                onClick={handleClick}
-                disabled={enlisted}
+                onClick={() =>
+                  {deleteBot(bot)}
+                }
               >
                 x
               </button>

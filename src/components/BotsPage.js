@@ -1,33 +1,50 @@
-import React ,{useState}from "react";
+import React, { useEffect, useState } from "react";
 import YourBotArmy from "./YourBotArmy";
 import BotCollection from "./BotCollection";
-import axios from "axios";
-
+import SortBar from "../components/sortBar";
 function BotsPage() {
   //start here with your code for step one
-  const [army, setArmy] = useState([])
+  const[bots, setBots]= useState([])
 
-  const enlistBot = (bot) => {
-    setArmy([...army,bot])
+  function addBot(newBot){
+    setBots(bots.map((bo)=> (bo.id=== newBot.id ? {...bo,army:true} :bo)))
   }
-
-  const releaseBot = (bot) => {
-    setArmy(army.filter(b => b.id !== bot.id))
+  function removeBot(bot){
+    setBots(bots.map((bo)=> (bo.id=== bot.id ? {...bo,army:false} :bo)))
   }
-
-  const dischargeBot = (bot) => {
-    axios.delete(`/bots/${bot.id}`)
-    .then(response => {
-      console.log('Bot discharged successfully:', response.data);
-      setArmy(army.filter(b => b.id !== bot.id));
-    })
+  function handleSort(criteria) {
+    const sortedBots = [...bots].sort((a, b) => b[criteria] - a[criteria]);
+    setBots(sortedBots);
   }
+  useEffect(()=>{
+    fetch("http://localhost:8002/bots")
+    .then((res) => res.json())
+    .then((data) => setBots(data))
+  }, [])
 
+
+  //delete
+  function deleteBot(bot){
+   fetch(`http://localhost:8002/bots/${bot.id}`, {
+    method:"DELETE"
+   })
+   .then(res=>res.json())
+   .then(()=>{
+    const remainingBots=bots.filter((bo)=> bo.id !== bot.id );
+    setBots(remainingBots)
+   })
+  
+  
+    }
   return (
     <div>
-     <YourBotArmy army={army} onRelease={releaseBot} onDischarge={dischargeBot} />
-      <BotCollection onEnlist={enlistBot}/>
-
+      <SortBar onSort={handleSort}/>
+      <YourBotArmy bots={bots.filter((bo)=>(bo.army))}
+      removeBot={removeBot}
+      deleteBot={deleteBot}
+      />
+      <BotCollection bot={bots} addBot={addBot}/>
+     
     </div>
   )
 }

@@ -1,27 +1,18 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import BotCard from "./BotCard";
 
-function BotCollection({onEnlist}) {
+function BotCollection({bot, addBot}) {
   // Your code here
-  const [bots,setBots] = useState([])
+  const allBots= bot.map((bo)=>{
+      return <BotCard key={bo.id} bot={bo} clickEvent={addBot}/>
+  })
 
-  useEffect(() => {
-    axios.get('http://localhost:8002/bots')
-    .then (r => {
-      setBots(r.data)
-    });
-  },[])
   return (
     <div className="ui four column grid">
       <div className="row">
-        {bots.map(bot => (
-          <div>key={bot.id} 
-          <BotCard bot={bot} onEnlist={onEnlist} />
-          </div>
-        ))}
-        {/*...and here..*/}
+        
         Collection of all bots
+        {allBots}
       </div>
     </div>
   );

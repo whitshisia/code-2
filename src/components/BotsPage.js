@@ -17,7 +17,7 @@ function BotsPage() {
     setBots(sortedBots);
   }
   useEffect(()=>{
-    fetch("http://localhost:8002/bots")
+    fetch("https://code-2-bdtj.onrender.com/bots")
     .then((res) => res.json())
     .then((data) => setBots(data))
   }, [])
@@ -25,7 +25,7 @@ function BotsPage() {
 
   //delete
   function deleteBot(bot){
-   fetch(`http://localhost:8002/bots/${bot.id}`, {
+   fetch(`https://code-2-bdtj.onrender.com/bots/${bot.id}`, {
     method:"DELETE"
    })
    .then(res=>res.json())

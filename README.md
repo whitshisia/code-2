@@ -20,8 +20,8 @@ the browser to verify that your backend is working before you proceed!
 The base URL for your backend is: `http://localhost:8002`
 
 ## Live link
-Deployed Frontend can be accessed here (https://whitshisia.github.io/phase-1/)
-Deployed Backend can be accessed here [APP](https://phase-1-2.onrender.com/res/)
+Deployed Frontend can be accessed here (https://magnificent-gnome-e36274.netlify.app/)
+Deployed Backend can be accessed here [APP](https://code-2-bdtj.onrender.com/bots/https://code-2-bdtj.onrender.com/bots/)
 
 
 
